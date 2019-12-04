@@ -2,7 +2,9 @@ package com.example.appchat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,7 +24,22 @@ public class MainActivity extends AppCompatActivity {
         editUser = (EditText)findViewById(R.id.edittextuser);
         editPassWord = (EditText)findViewById(R.id.edittextpasswword);
         buttonLogin= (Button)findViewById(R.id.buttondangnhap);
-        buttonRegister= (Button)findViewById(R.id.buttondangki);
+        buttonLogin.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, FirstView.class);
+                startActivity(intent);
 
+            }
+        });
+        buttonRegister= (Button)findViewById(R.id.buttondangki);
+        buttonRegister.setOnClickListener(new Button.OnClickListener(){
+            public  void onClick(View v){
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                startActivity(intent);
+                finish();
+
+            }
+        });
     }
 }
